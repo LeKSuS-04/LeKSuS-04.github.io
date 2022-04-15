@@ -1,5 +1,5 @@
 <script setup>
-import DesktopBlobs from "./DesktopBlobs.vue";
+import LandscapeBlobs from "./LandscapeBlobs.vue";
 import { ref, onMounted } from "vue";
 import PortraitBlobs from "./PortraitBlobs.vue";
 
@@ -18,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <DesktopBlobs v-if="isLandscapeOriented" />
+  <LandscapeBlobs v-if="isLandscapeOriented" />
   <PortraitBlobs v-else />
 </template>
 
