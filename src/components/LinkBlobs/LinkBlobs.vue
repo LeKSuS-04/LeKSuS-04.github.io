@@ -1,7 +1,7 @@
 <script setup>
 import LandscapeBlobs from "./LandscapeBlobs.vue";
-import { ref, onMounted } from "vue";
 import PortraitBlobs from "./PortraitBlobs.vue";
+import { ref, onMounted } from "vue";
 
 const isLandscapeOriented = ref(true);
 
