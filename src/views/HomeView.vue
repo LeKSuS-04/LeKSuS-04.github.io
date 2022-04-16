@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import WavyTextBlock from "../components/WavyBlocks/WavyTextBlock.vue";
-const quote = ref("Insert funny joke");
+const quote = ref("I am meant to say something here");
 </script>
 
 <template>
@@ -51,6 +51,10 @@ const quote = ref("Insert funny joke");
     bg="var(--background-alt-color)"
     fg="var(--text-color)"
   >
+    I am 18 years old computer science student. Programming is my my passion, so
+    in my free time I love to do all sorts of technical thins. I have experience
+    in different areas of IT, such as cyber security, DevOps, frontend and
+    backend web development, system administration and others.
   </WavyTextBlock>
 </template>
 
