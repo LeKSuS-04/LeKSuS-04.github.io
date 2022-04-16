@@ -44,7 +44,7 @@ $blue: #0277bd;
 $green: #388e3c;
 
 .dark-theme {
-  --background-color: #{$gray6};
+  --background-color: #{$green};
   --background-alt-color: #{$gray5};
   --nav-button-color: #{$gray3};
   --hover-nav-button-color: #{$gray2};
