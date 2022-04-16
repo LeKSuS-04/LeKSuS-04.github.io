@@ -56,7 +56,7 @@ const flexDirection = ref(titleOnLeft.value ? "row-reverse" : "row");
     font-size: 2em;
   }
   p {
-    padding: 50px 100px;
+    padding: 50px 70px;
   }
 
   @media screen and (min-width: 768px) {
@@ -70,6 +70,7 @@ const flexDirection = ref(titleOnLeft.value ? "row-reverse" : "row");
     }
     p {
       width: 50%;
+      padding: 50px 100px;
 
       $separator: 1px solid v-bind("fg");
       &.left {
