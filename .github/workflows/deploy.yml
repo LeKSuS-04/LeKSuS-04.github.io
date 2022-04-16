@@ -1,0 +1,23 @@
+name: Docker image CD
+
+on:
+  push:
+    branches:
+    - 'master'
+
+jobs:
+  deploy:
+    name: Cloud deployment
+    runs-on: ubuntu-latest
+    steps:
+    - name: Executing remote SSH commands
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_ADDRESS }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.REMOTE_SSH_KEY }}
+        script: |
+          cd My-Website
+          git pull
+          docker-compose down
+          docker-compose up --build --detach
