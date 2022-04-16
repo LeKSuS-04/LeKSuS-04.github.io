@@ -41,9 +41,10 @@ jobs:
         key: ${{ secrets.REMOTE_SSH_KEY }}
         envs: IMAGE
         script: |
-          echo "IMAGE=$IMAGE" > /tmp/.dockerenv 
+          echo "IMAGE=$IMAGE:latest" > /tmp/.dockerenv 
           cd ${{ secrets.REMOTE_REPO_SYSPATH }}
           git checkout master
           git pull
-          docker-compose down --env-file /tmp/.dockerenv
-          docker-compose up --detach --env-file /tmp/.dockerenv
+          docker-compose --env-file /tmp/.dockerenv down
+          docker-compose --env-file /tmp/.dockerenv pull
+          docker-compose --env-file /tmp/.dockerenv up --detach
