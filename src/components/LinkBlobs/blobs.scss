@@ -35,4 +35,7 @@ svg {
   &.github .blob:hover {
     fill: var(--green);
   }
+  &.wakatime .blob:hover {
+    fill: var(--blue);
+  }
 }
