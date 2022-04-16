@@ -17,7 +17,7 @@ jobs:
       run: echo $IMAGE:$GITHUB_SHA
 
     - name: Build the Docker image
-      run: docker build . --tag $IMAGE:$GITHUB_SHA
+      run: docker build . --tag $IMAGE
 
     - name: Login to Docker Hub account
       run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
