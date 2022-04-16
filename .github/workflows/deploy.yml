@@ -14,7 +14,7 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.REMOTE_ADDRESS }}
-        username: ${{ secrets.REMOTE_USER }}
+        username: ${{ secrets.REMOTE_USERNAME }}
         key: ${{ secrets.REMOTE_SSH_KEY }}
         script: |
           cd My-Website
