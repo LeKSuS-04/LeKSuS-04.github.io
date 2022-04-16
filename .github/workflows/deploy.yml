@@ -13,6 +13,9 @@ jobs:
       IMAGE: "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME}}"
     steps:
     - uses: actions/checkout@v3
+    - name: Test
+      run: echo $IMAGE:$GITHUB_SHA
+
     - name: Build the Docker image
       run: docker build . --tag $IMAGE:$GITHUB_SHA
 
