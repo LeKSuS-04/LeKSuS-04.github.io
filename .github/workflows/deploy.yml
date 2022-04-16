@@ -39,6 +39,7 @@ jobs:
         host: ${{ secrets.REMOTE_ADDRESS }}
         username: ${{ secrets.REMOTE_USERNAME }}
         key: ${{ secrets.REMOTE_SSH_KEY }}
+        envs: IMAGE
         script: |
           cd ${{ secrets.REMOTE_REPO_SYSPATH }}
           git checkout master
