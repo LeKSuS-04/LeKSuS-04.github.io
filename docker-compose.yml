@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  website:
+    build: .
+    container_name: website
+    restart: unless-stopped
+    expose:
+      - 8080
