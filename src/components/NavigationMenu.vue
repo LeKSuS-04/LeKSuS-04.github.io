@@ -1,11 +1,15 @@
 <script setup>
 import { ref } from "vue";
 const isMenuOpened = ref(false);
+
+function toggleMenu() {
+  isMenuOpened.value = !isMenuOpened.value;
+}
 </script>
 
 <template>
   <div :class="[isMenuOpened ? 'opened' : 'closed', 'menu-buttons']">
-    <button class="toggle" @click="isMenuOpened = !isMenuOpened">
+    <button class="toggle" @click="toggleMenu()">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path
           v-if="isMenuOpened"
@@ -15,7 +19,7 @@ const isMenuOpened = ref(false);
       </svg>
     </button>
   </div>
-  <div v-if="isMenuOpened" class="overlay">
+  <div v-if="isMenuOpened" class="overlay" @click="toggleMenu()">
     <svg
       id="visual"
       viewBox="0 0 960 540"
@@ -24,15 +28,16 @@ const isMenuOpened = ref(false);
     >
       <path
         d="M468 0C485.8 40.9 503.6 81.7 485.5 110.8C467.4 139.9 413.4 157.1 398.2 191.8C383.1 226.4 406.7 278.4 401.1 319.9C395.4 361.3 360.4 392.1 318 398.7C275.5 405.4 225.7 387.8 189.6 393.7C153.5 399.6 131.2 428.9 101.9 446.5C72.6 464.1 36.3 470.1 0 476L0 0Z"
+        @click.stop
       ></path>
     </svg>
     <nav>
       <ul>
         <li>
-          <router-link to="/" @click="isMenuOpened = false">HOME</router-link>
+          <router-link to="/" @click.stop="toggleMenu()">HOME</router-link>
         </li>
         <li>
-          <router-link to="/links" @click="isMenuOpened = false"
+          <router-link to="/links" @click.stop="toggleMenu()"
             >LINKS</router-link
           >
         </li>
