@@ -8,22 +8,31 @@ on:
 jobs:
   build:
     name: Build Docker image and upload it to Docker Hub
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     env:
       IMAGE: "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME}}"
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+        
+    - name: Set up Docker Buildx
+            id: buildx
+            uses: docker/setup-buildx-action@v1
+            
     - name: Login to Docker Hub
-      run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-    - name: Build the Docker image
-      run: docker build . --tag $IMAGE:$GITHUB_SHA
-
-    - name: Tag image to latest
-      run: docker tag $IMAGE:$GITHUB_SHA $IMAGE:latest
-
-    - name: Push image to Docker Hub
-      run: docker push $IMAGE:latest
+    - name: Build image and push to Docker Hub
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        platforms: linux/aarch64
 
 
   deploy:
