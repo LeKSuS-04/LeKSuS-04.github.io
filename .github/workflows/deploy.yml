@@ -19,9 +19,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --tag $IMAGE:$GITHUB_SHA
 
-    - name: Tag image to latest
-      run: docker tag $IMAGE:$GITHUB_SHA $IMAGE:latest
-
     - name: Login to Docker Hub account
       run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
 
