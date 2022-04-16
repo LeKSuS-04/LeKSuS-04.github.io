@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - 'master'
+    - 'dev'
 
 jobs:
   deploy:
@@ -17,7 +18,4 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.REMOTE_SSH_KEY }}
         script: |
-          cd My-Website
-          git pull
-          docker-compose down
-          docker-compose up --build --detach
+          ls -l
