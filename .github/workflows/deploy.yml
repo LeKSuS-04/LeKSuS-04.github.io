@@ -34,6 +34,7 @@ jobs:
         context: .
         platforms: linux/aarch64
         push: true
+        tag: latest
 
 
   deploy:
