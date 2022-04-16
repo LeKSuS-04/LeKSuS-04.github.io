@@ -9,13 +9,11 @@ jobs:
   build:
     name: Build Docker image and upload it to Docker Hub
     runs-on: ubuntu-latest
+    env:
+      IMAGE: "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME}}"
+      TAG: "$GITHUB_SHA"
     steps:
     - uses: actions/checkout@v3
-    - name: Set up environment variable with image name and tag
-      run: |
-        export IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME}}"
-        export TAG="$GITHUB_SHA"
-
     - name: Build the Docker image
       run: docker build . --tag $IMAGE:$TAG
 
