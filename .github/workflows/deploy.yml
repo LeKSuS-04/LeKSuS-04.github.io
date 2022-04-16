@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - 'master'
-    - 'dev'
 
 jobs:
   deploy:
@@ -15,7 +14,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.REMOTE_ADDRESS }}
-        username: ${{ secrets.REMOTE_USERNAME }}
+        username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.REMOTE_SSH_KEY }}
         script: |
-          ls -l
+          cd My-Website
+          git pull
+          docker-compose down
+          docker-compose up --build --detach
