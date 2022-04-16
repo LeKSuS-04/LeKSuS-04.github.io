@@ -41,7 +41,7 @@ jobs:
         key: ${{ secrets.REMOTE_SSH_KEY }}
         envs: IMAGE
         script: |
-          echo "IMAGE=$IMAGE:latest" > /tmp/.dockerenv 
+          echo "IMAGE=$IMAGE" > /tmp/.dockerenv 
           cd ${{ secrets.REMOTE_REPO_SYSPATH }}
           git checkout master
           git pull
