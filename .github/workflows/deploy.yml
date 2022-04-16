@@ -8,23 +8,24 @@ on:
 jobs:
   build:
     name: Build Docker image and upload it to Docker Hub
-    runs-on: ubuntu-latest
-    - name: Set Tag in evn variable
-      run: |
-        echo "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME }}" > APP_NAME
-        echo "$GITHUB_SHA" > TAG 
+    steps:
+      runs-on: ubuntu-latest
+      - name: Set Tag in evn variable
+        run: |
+          echo "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY_NAME }}" > APP_NAME
+          echo "$GITHUB_SHA" > TAG 
+          
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag $(cat APP_NAME):$(cat TAG)
+      
+      - name: Tag the image to latest
+        run: docker tag $(cat APP_NAME):$(cat TAG) $(cat APP_NAME):latest
         
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $(cat APP_NAME):$(cat TAG)
-    
-    - name: Tag the image to latest
-      run: docker tag $(cat APP_NAME):$(cat TAG) $(cat APP_NAME):latest
-      
-    - name: Docker Login
-      run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-      
-    - name: Image push
-      run: docker push $(cat APP_NAME):latest
+      - name: Docker Login
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+        
+      - name: Image push
+        run: docker push $(cat APP_NAME):latest
 
   deploy:
     name: Cloud deployment
