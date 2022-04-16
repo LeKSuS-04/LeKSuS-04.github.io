@@ -41,6 +41,7 @@ jobs:
         key: ${{ secrets.REMOTE_SSH_KEY }}
         script: |
           cd ${{ secrets.REMOTE_REPO_SYSPATH }}
+          git checkout master
           git pull
           docker-compose down
           docker-compose up --detach
