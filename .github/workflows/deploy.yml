@@ -15,8 +15,7 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.REMOTE_ADDRESS }}
-        username: ${{ secrets.REMOTE_USER }}
+        username: ${{ secrets.REMOTE_USERNAME }}
         key: ${{ secrets.REMOTE_SSH_KEY }}
-        use_insecure_cipher: true
         script: |
           ls -l
