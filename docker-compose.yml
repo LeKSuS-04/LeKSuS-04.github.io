@@ -2,8 +2,7 @@ version: '3.7'
 
 services:
   website:
-    build: .
-    container_name: website
+    image: "${IMAGE}"
     restart: unless-stopped
     ports:
       - 80:80
