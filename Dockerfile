@@ -1,7 +1,7 @@
 FROM node:latest as build-stage
 
 # This should cause error
-RUN bash -c "exit 1"
+RUN bash -c "echo 'i love cheese' && exit 1"
 
 WORKDIR /app
 COPY package*.json ./
