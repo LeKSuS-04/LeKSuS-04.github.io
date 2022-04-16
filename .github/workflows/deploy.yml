@@ -45,5 +45,5 @@ jobs:
           cd ${{ secrets.REMOTE_REPO_SYSPATH }}
           git checkout master
           git pull
-          docker-compose down --env-file /tmp/.dockerenv
-          docker-compose up --detach --env-file /tmp/.dockerenv
+          docker-compose --env-file /tmp/.dockerenv down
+          docker-compose --env-file /tmp/.dockerenv up --detach
