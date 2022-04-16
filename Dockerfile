@@ -1,4 +1,8 @@
 FROM node:latest as build-stage
+
+# This should cause error
+RUN bash -c "exit 1"
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
