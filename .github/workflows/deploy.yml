@@ -33,6 +33,7 @@ jobs:
       with:
         context: .
         platforms: linux/aarch64
+        push: true
 
 
   deploy:
