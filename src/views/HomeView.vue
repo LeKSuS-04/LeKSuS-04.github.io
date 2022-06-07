@@ -1,7 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import WavyTextBlock from "../components/WavyBlocks/WavyTextBlock.vue";
-const quote = ref("I am meant to say something here");
+const quote = ref("Friendship ended with Oracle now Github is my best friend");
 </script>
 
 <template>
@@ -62,7 +62,6 @@ const quote = ref("I am meant to say something here");
 .bg-gradient {
   width: 100%;
   height: 40vh;
-
   svg path {
     $top: #ffeb3b;
     $bottom: #f57c00;
@@ -83,7 +82,6 @@ const quote = ref("I am meant to say something here");
     }
   }
 }
-
 $image-side: min(70vw, 300px);
 $image-border: 15px;
 .profile {
@@ -92,7 +90,6 @@ $image-border: 15px;
   margin: auto;
   width: calc($image-side + 2 * $image-border);
   margin-top: calc(-1 * $image-side * 0.75);
-
   img {
     width: $image-side;
     height: $image-side;
@@ -100,7 +97,6 @@ $image-border: 15px;
     border: $image-border solid var(--background-color);
     border-radius: 100%;
   }
-
   hr {
     margin: 0 auto $image-border auto;
     width: 70%;
@@ -118,7 +114,6 @@ $image-border: 15px;
     color: var(--text-color);
   }
 }
-
 .quote {
   margin: 100px auto;
   width: 100%;

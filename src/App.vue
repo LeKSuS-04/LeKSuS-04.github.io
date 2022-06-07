@@ -1,14 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted } from "vue";
-import NavMenu from "@/components/NavigationMenu";
+import NavMenu from "./components/NavigationMenu.vue";
+import { RouterView } from "vue-router";
 
 onMounted(() => {
-  document.querySelector("body").classList.add("dark-theme");
+  document.querySelector("body")?.classList.add("dark-theme");
 });
 </script>
 
 <template>
-  <NavMenu />
+  <nav-menu />
   <router-view />
 </template>
 
@@ -17,6 +18,7 @@ onMounted(() => {
   padding: 0;
   margin: 0;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
 
 #app {
@@ -36,7 +38,6 @@ $gray4: #454e56;
 $gray5: #2a2e35;
 $gray6: #12181b;
 $gray7: #090b0f;
-
 $magenta: #c2185b;
 $yellow: #ffeb3b;
 $orange: #f57c00;
@@ -53,13 +54,11 @@ $green: #388e3c;
   --nav-bg-color: #{$magenta};
   --text-color: #{$gray2};
   --h-color: #{$gray1};
-
   --magenta: #{$magenta};
   --yellow: #{$yellow};
   --orange: #{$orange};
   --blue: #{$blue};
   --green: #{$green};
-
   --gray0: #{$gray0};
   --gray1: #{$gray1};
   --gray2: #{$gray2};

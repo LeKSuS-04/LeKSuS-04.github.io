@@ -1,31 +1,22 @@
-<script setup>
-import { ref, toRefs } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 import WavyBlock from "./WavyBlock.vue";
-const props = defineProps({
-  prevbg: {
-    type: String,
-    default: "#000",
-  },
-  bg: {
-    type: String,
-    default: "#fff",
-  },
-  fg: {
-    type: String,
-    default: "#000",
-  },
-  title: {
-    type: String,
-    default: "TITLE",
-  },
-  titleOnRight: {
-    type: Boolean,
-    default: false,
-  },
-});
 
-const { titleOnRight: titleOnLeft } = toRefs(props);
-const flexDirection = ref(titleOnLeft.value ? "row-reverse" : "row");
+const {
+  prevbg = "#000",
+  bg = "#fff",
+  fg = "#fff",
+  title = "TITLE",
+  titleOnRight = false,
+} = defineProps<{
+  prevbg?: string;
+  bg?: string;
+  fg?: string;
+  title?: string;
+  titleOnRight?: boolean;
+}>();
+
+const flexDirection = ref(titleOnRight ? "row" : "row-reverse");
 </script>
 
 <template>

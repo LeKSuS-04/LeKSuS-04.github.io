@@ -1,14 +1,8 @@
-<script setup>
-const props = defineProps({
-  prevbg: {
-    type: String,
-    default: "#000",
-  },
-  bg: {
-    type: String,
-    default: "#fff",
-  },
-});
+<script setup lang="ts">
+const { prevbg = "#000", bg = "#fff " } = defineProps<{
+  prevbg?: string;
+  bg?: string;
+}>();
 </script>
 
 <template>

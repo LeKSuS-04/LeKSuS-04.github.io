@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import LandscapeBlobs from "./LandscapeBlobs.vue";
 import PortraitBlobs from "./PortraitBlobs.vue";
 import { ref, onMounted } from "vue";
