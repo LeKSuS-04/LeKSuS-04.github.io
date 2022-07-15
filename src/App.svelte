@@ -89,7 +89,7 @@ I spend my free time coding and playing games, mostly turn-based strategies.
 
 <style lang="scss">
   $border-width: 2px;
-  $border-style: $border-width solid #555;
+  $border-style: $border-width solid var(--border-color);
 
   nav {
     margin: 0 0.5rem;
@@ -106,6 +106,8 @@ I spend my free time coding and playing games, mostly turn-based strategies.
       border: $border-style;
       border-bottom: none;
       border-radius: 0.5rem 0.5rem 0 0;
+
+      transition-duration: 300ms;
     }
 
     ul {
@@ -128,10 +130,10 @@ I spend my free time coding and playing games, mostly turn-based strategies.
         border-bottom: none;
         border-radius: 0.5rem 0.5rem 0 0;
 
-        color: #555;
+        color: var(--border-color);
         font-size: 1.5rem;
 
-        transition-duration: 0.3s;
+        transition-duration: 300ms;
         &:hover {
           background-color: var(--active-color);
           color: #fff;
@@ -153,11 +155,13 @@ I spend my free time coding and playing games, mostly turn-based strategies.
 
       & :global(a) {
         font-weight: 500;
-        color: #646cff;
         text-decoration: inherit;
-      }
-      & :global(a):hover {
-        color: #535bf2;
+        transition-duration: 200ms;
+        color: #48cae4;
+
+        &:hover {
+          color: #0096c7;
+        }
       }
     }
 
@@ -175,7 +179,16 @@ I spend my free time coding and playing games, mostly turn-based strategies.
 
   @media screen and (max-width: 768px) {
     main {
-      padding: 1rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    main article :global(a) {
+      color: #dd2c2f;
+      &:hover {
+        color: #ac1c1e;
+      }
     }
   }
 </style>
