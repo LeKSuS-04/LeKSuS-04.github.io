@@ -38,17 +38,17 @@ I spend my free time coding and playing games, mostly turn-based strategies.
     {
       icon: icons['faGithub'],
       color: '#171515',
-      link: 'https://github.com',
+      link: 'https://github.com/LeKSuS-04',
     },
     {
       icon: icons['faTelegramPlane'],
       color: '#0088cc',
-      link: 'https://github.com',
+      link: 'https://t.me/leksus_was_here',
     },
     {
       icon: icons['faTwitter'],
       color: '#1da1f2',
-      link: 'https://github.com',
+      link: 'https://twitter.com/___LeKSuS___',
     },
   ];
 
