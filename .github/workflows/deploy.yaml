@@ -1,9 +1,11 @@
 name: Deploy Vite app to Github Pages
 
 on:
+  schedule:
+    - cron: '0 */4 * * *'
   push:
     branches:
-      - test-ci
+      - master
 
 jobs:
   build:
