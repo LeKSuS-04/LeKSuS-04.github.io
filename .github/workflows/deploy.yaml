@@ -3,7 +3,7 @@ name: Deploy Vite app to Github Pages
 on:
   push:
     branches:
-      - master
+      - test-ci
 
 jobs:
   build:
@@ -20,6 +20,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        
+      - name: Fetch data from firebase and inline it in scripts
+        run: node fetchData.js
 
       - name: Build app
         run: npm run build
