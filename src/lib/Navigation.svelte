@@ -5,7 +5,8 @@
 
   export let routeName: string;
 
-  const links: Link[] = [];
+  // @ts-ignore
+  const links: Link[] = '#LINKS#';
 </script>
 
 <nav>
