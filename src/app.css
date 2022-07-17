@@ -2,6 +2,8 @@
   --background-color: #242424;
   --text-color: #ffffffd6;
   --border-color: #555;
+  --accent-color: #48cae4;
+  --accent-alt-color: #0096c7;
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 18px;
@@ -49,5 +51,7 @@ body {
     --text-color: #213547;
     --background-color: #ffffff;
     --border-color: #4d5d6b;
+    --accent-color: #dd2c2f;
+    --accent-alt-color: #ac1c1e;
   }
 }

@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
-    "marked": "^4.0.18"
+    "firebase": "^9.9.0",
+    "marked": "^4.0.18",
+    "svelte-spa-router": "^3.2.0"
   }
 }

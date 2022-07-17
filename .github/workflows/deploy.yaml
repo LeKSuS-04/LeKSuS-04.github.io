@@ -1,6 +1,8 @@
 name: Deploy Vite app to Github Pages
 
 on:
+  schedule:
+    - cron: '0 */4 * * *'
   push:
     branches:
       - master
@@ -20,6 +22,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        
+      - name: Fetch data from firebase and inline it in scripts
+        run: node fetchData.js
 
       - name: Build app
         run: npm run build
@@ -46,3 +51,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          cname: leksus.net
