@@ -1,39 +1,25 @@
 <script lang="ts">
   import Fa from 'svelte-fa';
   import * as icons from '@fortawesome/free-brands-svg-icons';
-  import { doc, getDoc } from 'firebase/firestore/lite';
-  import { db } from '../firebase';
-  import { errors } from '../store/error';
   import type { Link } from '../types';
 
   export let routeName: string;
 
-  async function fetchLinks(): Promise<Link[]> {
-    const docSnap = await getDoc(doc(db, 'users', 'data'));
-    if (!docSnap.exists()) {
-      errors.addError('Unable to fetch links :(');
-      return [];
-    }
-
-    const data = docSnap.data();
-    return data['links'];
-  }
+  const links: Link[] = [];
 </script>
 
 <nav>
   <header>{routeName}</header>
 
-  {#await fetchLinks() then links}
-    <ul>
-      {#each links as { icon, color, link }}
-        <li>
-          <a href={link} style:--active-color={color}>
-            <Fa icon={icons[icon]} />
-          </a>
-        </li>
-      {/each}
-    </ul>
-  {/await}
+  <ul>
+    {#each links as { icon, color, link }}
+      <li>
+        <a href={link} style:--active-color={color}>
+          <Fa icon={icons[icon]} />
+        </a>
+      </li>
+    {/each}
+  </ul>
 </nav>
 
 <style lang="scss">
